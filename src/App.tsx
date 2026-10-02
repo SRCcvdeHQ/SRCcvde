@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useState } from 'react'
+import { submitProjectInquiry } from './lib/inquiries'
 
 const services = [
   ['01', 'Websites', 'Distinct, responsive websites shaped around your brand, goals, and audience.', 'Marketing sites · Company sites · Landing experiences'],
@@ -442,26 +443,42 @@ function AboutPage() {
 
 function StartPage() {
   const [status, setStatus] = useState('')
+  const [submitting, setSubmitting] = useState(false)
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    const name = String(data.get('name') || '')
-    const email = String(data.get('email') || '')
-    const company = String(data.get('company') || '')
-    const project = String(data.get('project') || '')
-    const budget = String(data.get('budget') || '')
-    const timeline = String(data.get('timeline') || '')
-    const involvement = String(data.get('involvement') || '')
-    const details = String(data.get('details') || '')
+    if (submitting) return
 
-    const subject = encodeURIComponent(`Project idea from ${name || 'a new client'}`)
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nCompany: ${company || '—'}\n\nWhat they want built: ${project}\nBudget range: ${budget}\nTimeline: ${timeline}\nPreferred involvement: ${involvement}\n\nIdea / details:\n${details}`,
-    )
+    const form = event.currentTarget
+    const data = new FormData(form)
 
-    setStatus('Opening your email app with the project brief pre-filled…')
-    window.location.href = `mailto:hello@srccvde.com?subject=${subject}&body=${body}`
+    setSubmitting(true)
+    setStatus('Sending your project brief…')
+
+    try {
+      const result = await submitProjectInquiry({
+        name: String(data.get('name') || ''),
+        email: String(data.get('email') || ''),
+        company: String(data.get('company') || ''),
+        project_type: String(data.get('project') || ''),
+        budget_range: String(data.get('budget') || 'Not sure yet'),
+        timeline: String(data.get('timeline') || 'Flexible'),
+        involvement: String(data.get('involvement') || 'Collaborative'),
+        details: String(data.get('details') || ''),
+        website: String(data.get('website') || ''),
+      })
+
+      form.reset()
+      setStatus(
+        result.duplicate
+          ? 'We already received this project brief. You’re all set.'
+          : 'Received. We’ll review your idea and follow up by email.',
+      )
+    } catch (error) {
+      setStatus(error instanceof Error ? error.message : 'Unable to submit right now. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -504,10 +521,11 @@ function StartPage() {
               <option>Hands-off</option><option>Collaborative</option><option>Very involved</option><option>Not sure yet</option>
             </select>
           </label>
-          <label><span>Tell us about the idea *</span><textarea name="details" rows={8} required placeholder="What should exist when we're finished? Who is it for? What problem are you trying to solve?" /></label>
+          <label><span>Tell us about the idea *</span><textarea name="details" rows={8} minLength={20} maxLength={5000} required placeholder="What should exist when we're finished? Who is it for? What problem are you trying to solve?" /></label>
+          <label className="hp-field" aria-hidden="true"><span>Website</span><input name="website" tabIndex={-1} autoComplete="off" /></label>
           <div className="form-footer">
-            <p>For now, submitting opens a pre-filled email draft so nothing is stored without your knowledge.</p>
-            <button className="button button-tan" type="submit">Prepare project email <span>↗</span></button>
+            <p>Your project brief is sent securely to SRCcvde and stored for follow-up. Submitting this form does not create a contract or commitment.</p>
+            <button className="button button-tan" type="submit" disabled={submitting}>{submitting ? 'Sending…' : 'Send project brief'} <span>↗</span></button>
           </div>
           <p className="form-status" role="status">{status}</p>
         </form>
@@ -529,12 +547,12 @@ function LegalPage({ type }: { type: 'privacy' | 'terms' }) {
         {privacy ? (
           <>
             <h2>Current website data</h2>
-            <p>This public site does not currently submit project form data to a SRCcvde database. The Start a Project form prepares an email in your own email application. SRCcvde receives information only when you choose to send that email.</p>
+            <p>The Start a Project form sends the information you provide to SRCcvde's protected project-intake system so we can review your inquiry and follow up with you. The form collects the contact and project details you choose to submit.</p>
             <h2>Technical information</h2>
             <p>Our hosting, DNS, and related infrastructure may process standard technical information needed to deliver and protect the website, such as IP addresses, request information, and security logs.</p>
             <h2>Contact</h2>
             <p>Questions about privacy can be sent to <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>.</p>
-            <div className="legal-note">This page will be updated before database-backed intake, analytics, accounts, or other data-collection features are enabled.</div>
+            <div className="legal-note">SRCcvde uses reasonable technical safeguards for project inquiries. We do not expose the inquiry database directly to public website visitors.</div>
           </>
         ) : (
           <>
