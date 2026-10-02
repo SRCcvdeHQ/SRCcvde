@@ -51,8 +51,16 @@ const pageMeta: Record<string, PageMeta> = {
     description: 'SRCcvde privacy information.',
   },
   '/terms': {
-    title: 'Terms — SRCcvde',
-    description: 'SRCcvde website terms.',
+    title: 'Terms of Use — SRCcvde',
+    description: 'Terms governing use of the public SRCcvde website.',
+  },
+  '/cookies': {
+    title: 'Cookie & Tracking Notice — SRCcvde',
+    description: 'How SRCcvde uses cookies, local storage, and similar website technologies.',
+  },
+  '/accessibility': {
+    title: 'Accessibility — SRCcvde',
+    description: 'SRCcvde accessibility commitment and contact information.',
   },
 }
 
@@ -136,6 +144,8 @@ function Footer() {
         <div>
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
+          <a href="/cookies">Cookies</a>
+          <a href="/accessibility">Accessibility</a>
         </div>
         <span>Built with intention.</span>
       </div>
@@ -534,41 +544,178 @@ function StartPage() {
   )
 }
 
-function LegalPage({ type }: { type: 'privacy' | 'terms' }) {
-  const privacy = type === 'privacy'
+function PolicyLayout({
+  eyebrow,
+  title,
+  copy,
+  children,
+}: {
+  eyebrow: string
+  title: string
+  copy: string
+  children: React.ReactNode
+}) {
   return (
     <SiteFrame>
-      <PageHero
-        eyebrow={privacy ? 'Privacy' : 'Terms'}
-        title={privacy ? 'Privacy, in plain language.' : 'Website terms.'}
-        copy={privacy ? 'A simple explanation of what this website does with information before the full client intake system is connected.' : 'Basic terms for using the public SRCcvde website. Project-specific terms belong in a signed client agreement.'}
-      />
-      <section className="section shell legal-copy">
-        {privacy ? (
-          <>
-            <h2>Current website data</h2>
-            <p>The Start a Project form sends the information you provide to SRCcvde's protected project-intake system so we can review your inquiry and follow up with you. The form collects the contact and project details you choose to submit.</p>
-            <h2>Technical information</h2>
-            <p>Our hosting, DNS, and related infrastructure may process standard technical information needed to deliver and protect the website, such as IP addresses, request information, and security logs.</p>
-            <h2>Contact</h2>
-            <p>Questions about privacy can be sent to <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>.</p>
-            <div className="legal-note">SRCcvde uses reasonable technical safeguards for project inquiries. We do not expose the inquiry database directly to public website visitors.</div>
-          </>
-        ) : (
-          <>
-            <h2>Using this website</h2>
-            <p>The SRCcvde website is provided for general information about our services and to help potential clients contact us. Website content may change as services and processes evolve.</p>
-            <h2>No project agreement is created here</h2>
-            <p>Submitting an inquiry, sending an email, or discussing an idea does not by itself create a client relationship, guarantee availability, establish pricing, or create a binding project agreement.</p>
-            <h2>Project ownership</h2>
-            <p>Ownership, licensing, confidentiality, payment milestones, scope, and handoff terms for client work are defined in the signed agreement for that specific project.</p>
-            <h2>Contact</h2>
-            <p>Questions can be sent to <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>.</p>
-            <div className="legal-note">These website terms are a working business notice and are not a substitute for project-specific legal agreements.</div>
-          </>
-        )}
+      <PageHero eyebrow={eyebrow} title={title} copy={copy} />
+      <section className="section shell legal-layout">
+        <aside className="legal-aside">
+          <p className="section-label">Policy information</p>
+          <strong>Effective October 1, 2026</strong>
+          <span>Last updated October 1, 2026</span>
+          <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>
+        </aside>
+        <article className="legal-copy">{children}</article>
       </section>
     </SiteFrame>
+  )
+}
+
+function PrivacyPage() {
+  return (
+    <PolicyLayout
+      eyebrow="Privacy Policy"
+      title="Privacy, in plain language."
+      copy="This policy explains what information SRCcvde collects through this website, why we use it, how it may be shared, and the choices available to you."
+    >
+      <h2>1. Scope</h2>
+      <p>This Privacy Policy applies to srccvde.com and the public SRCcvde project-intake experience. It does not replace the privacy or confidentiality terms that may apply to a signed client project.</p>
+
+      <h2>2. Information we collect</h2>
+      <p>When you submit a project inquiry, we collect the information you choose to provide, which may include your name, email address, company or project name, project type, budget range, preferred timeline, preferred level of involvement, and the details you write about your idea.</p>
+      <p>We also process limited technical information needed to operate and protect the site and intake system. This may include browser and device information, request origin, user agent, security logs, and network information. For intake rate limiting, our backend converts the requesting IP address into a one-way HMAC-derived value rather than storing the raw IP address in the inquiry record.</p>
+
+      <h2>3. How we use information</h2>
+      <p>We use information to review and respond to inquiries, understand potential projects, communicate with you, prevent abuse and duplicate submissions, protect our systems, maintain business records, improve the website, and comply with applicable law.</p>
+
+      <h2>4. How information may be shared</h2>
+      <p>We may disclose information to service providers that help us operate the website and business, such as hosting, database, DNS, security, infrastructure, and email providers. Current website infrastructure includes services from providers such as GitHub, Supabase, Cloudflare, Google Fonts, and our email provider. These providers may process technical or submitted information as necessary to provide their services.</p>
+      <p>We may also disclose information when reasonably necessary to comply with law, protect rights or safety, investigate misuse, or in connection with a business reorganization or transfer. We do not currently sell personal information for money or share it for cross-context behavioral advertising.</p>
+
+      <h2>5. Cookies, storage, and tracking</h2>
+      <p>SRCcvde does not currently use advertising cookies or third-party analytics cookies on this public website. The site may use browser session storage for basic navigation behavior, such as restoring a requested page after a GitHub Pages redirect. See our <a href="/cookies">Cookie &amp; Tracking Notice</a> for more detail.</p>
+      <p>We do not currently engage in cross-site behavioral tracking. Because the site does not use cross-site advertising trackers, browser “Do Not Track” signals do not change the site's current behavior. Third-party infrastructure providers may receive ordinary technical requests when their resources or services are used.</p>
+
+      <h2>6. Retention</h2>
+      <p>We retain project inquiries and related business records for as long as reasonably needed to evaluate the opportunity, communicate with you, maintain records, resolve disputes, protect our systems, or meet legal obligations. Retention periods may vary depending on whether an inquiry becomes a client project.</p>
+
+      <h2>7. Your privacy choices and requests</h2>
+      <p>You may contact us to ask to access, correct, or delete personal information that you submitted through this website. We may need to verify your identity before completing a request, and some information may be retained where permitted or required by law.</p>
+      <p>If an applicable state privacy law gives you additional rights, we will process qualifying requests as required by that law. You may send requests to <a href="mailto:hello@srccvde.com?subject=Privacy%20Request">hello@srccvde.com</a>.</p>
+
+      <h2>8. Security</h2>
+      <p>We use reasonable technical and organizational safeguards appropriate to the information we handle. The public website does not receive direct database access to project inquiries; submissions pass through a protected server-side function with validation and anti-abuse controls. No internet system can be guaranteed completely secure.</p>
+
+      <h2>9. Children</h2>
+      <p>This website is intended for business and general audiences and is not directed to children under 13. We do not knowingly seek personal information from children under 13 through the project-intake form.</p>
+
+      <h2>10. Changes to this policy</h2>
+      <p>We may update this policy as the website, services, or legal requirements change. Material updates will be reflected by changing the “Last updated” date on this page and, when appropriate, by providing additional notice.</p>
+
+      <h2>11. Contact</h2>
+      <p>Privacy questions and requests can be sent to <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>.</p>
+
+      <div className="legal-note">This policy is written for SRCcvde's current public website and intake flow. It should be reviewed whenever analytics, advertising, customer accounts, payment processing, or other new data practices are added.</div>
+    </PolicyLayout>
+  )
+}
+
+function TermsPage() {
+  return (
+    <PolicyLayout
+      eyebrow="Terms of Use"
+      title="Website terms without the mystery."
+      copy="These terms govern use of the public SRCcvde website. A client project is governed by its own signed proposal, agreement, or statement of work."
+    >
+      <h2>1. Acceptance of these terms</h2>
+      <p>By using this website, you agree to these Terms of Use. If you do not agree, please do not use the site.</p>
+
+      <h2>2. Informational website</h2>
+      <p>The website describes SRCcvde, our general capabilities, process, and ways to contact us. Website content is provided for general informational purposes and may change without notice.</p>
+
+      <h2>3. No client relationship or project agreement</h2>
+      <p>Submitting a project inquiry, sending an email, scheduling a conversation, or discussing an idea does not by itself create a client relationship, reserve availability, establish a price, or create a binding obligation for either party. A project begins only when the applicable parties agree to written project terms.</p>
+
+      <h2>4. Estimates and availability</h2>
+      <p>Any general references to services, timing, or possible approaches on this website are not quotes or guarantees. Project scope, pricing, milestones, deliverables, ownership, support, and timing are determined for each engagement.</p>
+
+      <h2>5. Intellectual property</h2>
+      <p>The SRCcvde name, website design, text, graphics, brand elements, and other site content are owned by SRCcvde or used with permission and may not be copied, republished, or commercially exploited without permission except as allowed by law.</p>
+      <p>Client ownership of custom project deliverables is not determined by these website terms. It is defined in the signed agreement for that project.</p>
+
+      <h2>6. Information you submit</h2>
+      <p>You represent that you have the right to provide the information and materials you submit to us. Do not submit passwords, payment-card information, government identification numbers, medical records, highly sensitive personal data, or third-party confidential information through the general project-intake form unless we specifically establish an appropriate method for doing so.</p>
+
+      <h2>7. Acceptable use</h2>
+      <p>You may not use this site to violate law, interfere with its operation, attempt unauthorized access, send malicious code, automate abusive submissions, scrape the site in a manner that materially burdens our systems, impersonate another person, or infringe the rights of SRCcvde or others.</p>
+
+      <h2>8. Third-party services and links</h2>
+      <p>The website may depend on or link to third-party services. SRCcvde does not control those services and is not responsible for their independent terms, privacy practices, availability, or content.</p>
+
+      <h2>9. Disclaimers</h2>
+      <p>To the extent permitted by law, the public website is provided “as is” and “as available.” We do not promise that the site will always be uninterrupted, error-free, or free of harmful components, or that every piece of public content will remain current.</p>
+
+      <h2>10. Limitation of liability</h2>
+      <p>To the extent permitted by law, SRCcvde will not be liable for indirect, incidental, special, consequential, or punitive damages arising solely from use of, or inability to use, this public website. Nothing in these terms excludes liability that cannot legally be excluded.</p>
+
+      <h2>11. Governing law</h2>
+      <p>These website terms are governed by the laws of the State of Nevada, without regard to conflict-of-law rules. Subject to applicable law, disputes concerning these website terms may be brought in courts located in Clark County, Nevada.</p>
+
+      <h2>12. Changes and contact</h2>
+      <p>We may update these terms from time to time. The effective date shown on this page identifies the current version. Questions may be sent to <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>.</p>
+
+      <div className="legal-note">These are public website terms. Project contracts, payment terms, confidentiality obligations, warranties, support, and ownership rules should remain in SRCcvde's project-specific agreements.</div>
+    </PolicyLayout>
+  )
+}
+
+function CookiesPage() {
+  return (
+    <PolicyLayout
+      eyebrow="Cookie & Tracking Notice"
+      title="Very little tracking. That's intentional."
+      copy="This notice explains the browser technologies currently used by the SRCcvde public website."
+    >
+      <h2>1. Cookies</h2>
+      <p>SRCcvde does not currently set advertising cookies or analytics cookies on this public website. We do not currently use cookies to build advertising profiles or follow visitors across unrelated websites.</p>
+
+      <h2>2. Browser storage</h2>
+      <p>The site may use session storage for limited functional purposes. For example, when GitHub Pages routes a direct link through the site's fallback page, session storage may temporarily preserve the page you originally requested so the application can restore it. Session storage is generally cleared by the browser when the session ends.</p>
+
+      <h2>3. Third-party technical requests</h2>
+      <p>Some website resources or infrastructure are provided by third parties. For example, this site currently loads web fonts from Google Fonts and uses infrastructure or services from GitHub, Supabase, and Cloudflare. Those providers may receive ordinary connection information such as IP address, browser information, and request metadata under their own policies.</p>
+
+      <h2>4. Future analytics or advertising</h2>
+      <p>If SRCcvde later adds non-essential analytics, advertising technologies, or other tracking that materially changes these practices, this notice and the Privacy Policy will be updated. Where applicable law requires consent or an opt-out mechanism, we will implement the appropriate choice before using that technology.</p>
+
+      <h2>5. Browser controls</h2>
+      <p>You can use your browser settings to block or clear cookies and site storage. Blocking essential browser storage may affect some navigation behavior, but the current public site does not require advertising or analytics cookies to function.</p>
+
+      <h2>6. Contact</h2>
+      <p>Questions about website tracking can be sent to <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>.</p>
+    </PolicyLayout>
+  )
+}
+
+function AccessibilityPage() {
+  return (
+    <PolicyLayout
+      eyebrow="Accessibility"
+      title="Technology should be usable."
+      copy="Accessibility is part of the way SRCcvde wants to build—not an afterthought added at the end."
+    >
+      <h2>Our approach</h2>
+      <p>SRCcvde aims to make this website usable across a range of devices, screen sizes, input methods, and assistive technologies. We use responsive layouts, keyboard-focus indicators, semantic page structure, readable contrast, reduced-motion support, and form labels as part of that work.</p>
+
+      <h2>Standards</h2>
+      <p>We use WCAG 2.2 Level AA as a design and testing target where reasonably applicable. This is a continuing goal rather than a claim that every page or third-party dependency is perfectly conformant at all times.</p>
+
+      <h2>Need help or found a barrier?</h2>
+      <p>If you have difficulty using any part of this site, tell us what page or feature caused the problem and, if comfortable, what device or assistive technology you were using. We will make a reasonable effort to provide the information or function through an accessible alternative and to address the underlying issue.</p>
+
+      <h2>Contact</h2>
+      <p>Email accessibility feedback to <a href="mailto:hello@srccvde.com?subject=Accessibility%20Feedback">hello@srccvde.com</a>.</p>
+    </PolicyLayout>
   )
 }
 
@@ -618,8 +765,10 @@ export default function App() {
     case '/work': return <WorkPage />
     case '/about': return <AboutPage />
     case '/start': return <StartPage />
-    case '/privacy': return <LegalPage type="privacy" />
-    case '/terms': return <LegalPage type="terms" />
+    case '/privacy': return <PrivacyPage />
+    case '/terms': return <TermsPage />
+    case '/cookies': return <CookiesPage />
+    case '/accessibility': return <AccessibilityPage />
     default: return <NotFoundPage />
   }
 }
