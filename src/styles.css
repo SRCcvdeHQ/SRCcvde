@@ -6,14 +6,14 @@
   background: var(--ivory);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --ivory: #FAF7EF;
-  --paper: #F1EADF;
-  --charcoal: #0F1F16;
-  --forest: #1F4D3A;
-  --forest-soft: #2F624B;
-  --sage: #A7B89F;
-  --beige: #DCC9A8;
-  --line: rgba(15, 31, 22, 0.16);
+  --ivory: #F4F1EA;
+  --paper: #E8E0D2;
+  --charcoal: #0A0D0B;
+  --forest: #173E2E;
+  --forest-soft: #557562;
+  --sage: #C8B89A;
+  --beige: #C8B89A;
+  --line: rgba(10, 13, 11, 0.15);
 }
 
 * {
@@ -142,7 +142,7 @@ a {
   background:
     radial-gradient(circle at 79% 44%, rgba(167, 184, 159, 0.18), transparent 20rem),
     radial-gradient(circle at 10% 12%, rgba(31, 77, 58, 0.24), transparent 30rem),
-    linear-gradient(135deg, #0F1F16 0%, #13291F 56%, #0F1F16 100%);
+    linear-gradient(135deg, #0A0D0B 0%, #101813 58%, #0A0D0B 100%);
   pointer-events: none;
 }
 
@@ -971,7 +971,7 @@ footer {
 }
 
 .nav-wrap {
-  background: linear-gradient(to bottom, rgba(15, 31, 22, 0.42), transparent);
+  background: linear-gradient(to bottom, rgba(10, 13, 11, 0.72), transparent);
 }
 
 .hero h1 {
@@ -983,11 +983,11 @@ footer {
 }
 
 .hero-lede {
-  color: rgba(250, 247, 239, 0.78);
+  color: rgba(244, 241, 234, 0.76);
 }
 
 .kicker {
-  color: rgba(250, 247, 239, 0.62);
+  color: rgba(244, 241, 234, 0.58);
 }
 
 .status-dot {
@@ -996,17 +996,17 @@ footer {
 
 .idea-core {
   background:
-    radial-gradient(circle at 30% 25%, rgba(250, 247, 239, 0.14), transparent 35%),
+    radial-gradient(circle at 30% 25%, rgba(244, 241, 234, 0.12), transparent 35%),
     var(--forest);
 }
 
 .code-fragment {
-  background: rgba(15, 31, 22, 0.82);
-  color: rgba(250, 247, 239, 0.68);
+  background: rgba(10, 13, 11, 0.88);
+  color: rgba(244, 241, 234, 0.66);
 }
 
 .hero-foot {
-  color: rgba(250, 247, 239, 0.46);
+  color: rgba(244, 241, 234, 0.43);
 }
 
 
@@ -1113,4 +1113,79 @@ footer {
   .hero-object {
     width: min(340px, 100%);
   }
+}
+
+
+/* Black-forward SRCcvde palette test */
+body {
+  background: var(--ivory);
+  color: var(--charcoal);
+}
+
+.hero,
+.ownership,
+footer {
+  background: var(--charcoal);
+}
+
+.process,
+.final-cta {
+  background: var(--forest);
+}
+
+.belief,
+.work {
+  background: var(--paper);
+}
+
+.button-light {
+  background: var(--beige);
+  color: var(--charcoal);
+}
+
+.button-light:hover {
+  background: #D5C8B0;
+}
+
+.nav-cta:hover {
+  background: var(--beige);
+  color: var(--charcoal);
+}
+
+.hero h1 em,
+.status-dot,
+.orbit-one::after,
+.orbit-two::after {
+  color: var(--beige);
+  background: var(--beige);
+}
+
+.section-label,
+.card-number,
+.step-number {
+  color: var(--forest-soft);
+}
+
+.light-label,
+.process .section-label {
+  color: #B9C3BC;
+}
+
+.work-placeholder {
+  background:
+    linear-gradient(rgba(10,13,11,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,13,11,.035) 1px, transparent 1px),
+    #E2D7C6;
+  border-color: rgba(10,13,11,.14);
+}
+
+.audience-tags span,
+.work-status {
+  border-color: rgba(10,13,11,.16);
+}
+
+.idea-core {
+  background:
+    radial-gradient(circle at 30% 25%, rgba(244, 241, 234, 0.10), transparent 35%),
+    var(--forest);
 }
