@@ -239,6 +239,20 @@ function HomePage() {
         </div>
       </section>
 
+      <section className="section-band">
+        <div className="shell split-copy">
+          <div>
+            <p className="section-label">SRCcvde client platform</p>
+            <h2>One place to move a project from idea to handoff.</h2>
+          </div>
+          <div>
+            <p>SRCcvde operates a secure client and project platform at app.srccvde.com for project intake, proposals, agreements, electronic signatures, milestones, project documents, approvals, and handoff.</p>
+            <p>When an authorized SRCcvde administrator connects Google Drive, the platform uses the Google Drive API only to organize and archive SRCcvde client project documents in the connected business Drive. Google Workspace API data is not used to train or improve generalized AI or machine-learning models, create non-consensual intimate imagery, build advertising profiles, or sell user data.</p>
+            <p>Our use of information received from Google APIs follows the Google API Services User Data Policy, including its Limited Use requirements. <a className="text-link" href="/privacy">Read our Privacy Policy <span>↗</span></a></p>
+          </div>
+        </div>
+      </section>
+
       <section className="section shell">
         <div className="section-heading">
           <div><p className="section-label">What we build</p><h2>Custom tech at your fingertips.</h2></div>
@@ -561,8 +575,8 @@ function PolicyLayout({
       <section className="section shell legal-layout">
         <aside className="legal-aside">
           <p className="section-label">Policy information</p>
-          <strong>Effective October 1, 2026</strong>
-          <span>Last updated October 1, 2026</span>
+          <strong>Effective October 2, 2026</strong>
+          <span>Last updated October 2, 2026</span>
           <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>
         </aside>
         <article className="legal-copy">{children}</article>
@@ -579,7 +593,7 @@ function PrivacyPage() {
       copy="This policy explains what information SRCcvde collects through this website, why we use it, how it may be shared, and the choices available to you."
     >
       <h2>1. Scope</h2>
-      <p>This Privacy Policy applies to srccvde.com and the public SRCcvde project-intake experience. It does not replace the privacy or confidentiality terms that may apply to a signed client project.</p>
+      <p>This Privacy Policy applies to srccvde.com, app.srccvde.com, the public SRCcvde project-intake experience, and SRCcvde's client and project platform. It does not replace privacy, confidentiality, or data-processing terms that may apply to a signed client project.</p>
 
       <h2>2. Information we collect</h2>
       <p>When you submit a project inquiry, we collect the information you choose to provide, which may include your name, email address, company or project name, project type, budget range, preferred timeline, preferred level of involvement, and the details you write about your idea.</p>
@@ -592,27 +606,33 @@ function PrivacyPage() {
       <p>We may disclose information to service providers that help us operate the website and business, such as hosting, database, DNS, security, infrastructure, and email providers. Current website infrastructure includes services from providers such as GitHub, Supabase, Cloudflare, Google Fonts, and our email provider. These providers may process technical or submitted information as necessary to provide their services.</p>
       <p>We may also disclose information when reasonably necessary to comply with law, protect rights or safety, investigate misuse, or in connection with a business reorganization or transfer. We do not currently sell personal information for money or share it for cross-context behavioral advertising.</p>
 
-      <h2>5. Cookies, storage, and tracking</h2>
+      <h2>5. Google Drive and Google user data</h2>
+      <p>An authorized SRCcvde administrator may connect a SRCcvde-controlled Google account to the client platform so the platform can create, organize, retrieve, and archive project documents in Google Drive. The platform requests Google Drive access for this document-management and archival workflow.</p>
+      <p>Google user data accessed through Google APIs is used only to provide and maintain this user-facing document workflow. SRCcvde does not use Google Workspace API data to train or improve generalized artificial-intelligence or machine-learning models, create AI-generated non-consensual intimate imagery, serve or personalize advertising, or sell Google user data.</p>
+      <p>SRCcvde's use and transfer of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements. OAuth credentials and refresh tokens are stored server-side with restricted access and are not exposed in the public website or client browser.</p>
+      <p>You can revoke the Google connection from your Google Account permissions. SRCcvde administrators may also disconnect or replace the connected account. Revocation stops future API access; business records and documents already created or archived may be retained as otherwise described in this policy or required for legitimate business and legal purposes.</p>
+
+      <h2>6. Cookies, storage, and tracking</h2>
       <p>SRCcvde does not currently use advertising cookies or third-party analytics cookies on this public website. The site may use browser session storage for basic navigation behavior, such as restoring a requested page after a GitHub Pages redirect. See our <a href="/cookies">Cookie &amp; Tracking Notice</a> for more detail.</p>
       <p>We do not currently engage in cross-site behavioral tracking. Because the site does not use cross-site advertising trackers, browser “Do Not Track” signals do not change the site's current behavior. Third-party infrastructure providers may receive ordinary technical requests when their resources or services are used.</p>
 
-      <h2>6. Retention</h2>
+      <h2>7. Retention</h2>
       <p>We retain project inquiries and related business records for as long as reasonably needed to evaluate the opportunity, communicate with you, maintain records, resolve disputes, protect our systems, or meet legal obligations. Retention periods may vary depending on whether an inquiry becomes a client project.</p>
 
-      <h2>7. Your privacy choices and requests</h2>
+      <h2>8. Your privacy choices and requests</h2>
       <p>You may contact us to ask to access, correct, or delete personal information that you submitted through this website. We may need to verify your identity before completing a request, and some information may be retained where permitted or required by law.</p>
       <p>If an applicable state privacy law gives you additional rights, we will process qualifying requests as required by that law. You may send requests to <a href="mailto:hello@srccvde.com?subject=Privacy%20Request">hello@srccvde.com</a>.</p>
 
-      <h2>8. Security</h2>
+      <h2>9. Security</h2>
       <p>We use reasonable technical and organizational safeguards appropriate to the information we handle. The public website does not receive direct database access to project inquiries; submissions pass through a protected server-side function with validation and anti-abuse controls. No internet system can be guaranteed completely secure.</p>
 
-      <h2>9. Children</h2>
+      <h2>10. Children</h2>
       <p>This website is intended for business and general audiences and is not directed to children under 13. We do not knowingly seek personal information from children under 13 through the project-intake form.</p>
 
-      <h2>10. Changes to this policy</h2>
+      <h2>11. Changes to this policy</h2>
       <p>We may update this policy as the website, services, or legal requirements change. Material updates will be reflected by changing the “Last updated” date on this page and, when appropriate, by providing additional notice.</p>
 
-      <h2>11. Contact</h2>
+      <h2>12. Contact</h2>
       <p>Privacy questions and requests can be sent to <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>.</p>
 
       <div className="legal-note">This policy is written for SRCcvde's current public website and intake flow. It should be reviewed whenever analytics, advertising, customer accounts, payment processing, or other new data practices are added.</div>
