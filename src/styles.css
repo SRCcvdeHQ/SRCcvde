@@ -1008,3 +1008,109 @@ footer {
 .hero-foot {
   color: rgba(250, 247, 239, 0.46);
 }
+
+
+/* Hero layout hardening — keep content clear on short and wide viewports. */
+.hero {
+  min-height: 100svh;
+  padding-top: clamp(128px, 16vh, 176px);
+  padding-bottom: clamp(96px, 12vh, 128px);
+  align-content: center;
+}
+
+.hero h1 {
+  font-size: clamp(4.35rem, min(9vw, 14vh), 8.4rem);
+  line-height: 0.87;
+}
+
+.hero-lede {
+  margin-top: clamp(24px, 4vh, 36px);
+}
+
+.actions {
+  margin-top: clamp(24px, 4vh, 34px);
+}
+
+.hero-foot {
+  bottom: 28px;
+  pointer-events: none;
+}
+
+.hero-object {
+  width: min(400px, 82%);
+}
+
+@media (max-height: 760px) and (min-width: 901px) {
+  .hero {
+    min-height: 760px;
+    padding-top: 126px;
+    padding-bottom: 96px;
+  }
+
+  .hero h1 {
+    font-size: clamp(4.2rem, 8.2vw, 7.2rem);
+    line-height: 0.88;
+  }
+
+  .hero-lede {
+    margin-top: 22px;
+    max-width: 590px;
+  }
+
+  .actions {
+    margin-top: 22px;
+  }
+
+  .hero-object {
+    width: min(350px, 78%);
+  }
+
+  .hero-foot {
+    bottom: 22px;
+  }
+}
+
+@media (max-height: 620px) and (min-width: 901px) {
+  .hero {
+    min-height: 620px;
+    padding-top: 108px;
+    padding-bottom: 82px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.8rem, 7.4vw, 6.2rem);
+  }
+
+  .hero-lede {
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-top: 18px;
+  }
+
+  .actions {
+    margin-top: 18px;
+  }
+
+  .button {
+    min-height: 48px;
+  }
+
+  .hero-object {
+    width: 300px;
+  }
+
+  .hero-foot {
+    bottom: 16px;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 901px) {
+  .hero {
+    grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+    gap: 20px;
+  }
+
+  .hero-object {
+    width: min(340px, 100%);
+  }
+}
