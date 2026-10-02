@@ -2,18 +2,18 @@
 
 :root {
   font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: #17231d;
-  background: #f7f3ea;
+  color: var(--charcoal);
+  background: var(--ivory);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --ivory: #f7f3ea;
-  --paper: #eee8dc;
-  --charcoal: #101914;
-  --forest: #173f31;
-  --forest-soft: #245744;
-  --sage: #9dae97;
-  --beige: #d9c8a8;
-  --line: rgba(23, 35, 29, 0.16);
+  --ivory: #FAF7EF;
+  --paper: #F1EADF;
+  --charcoal: #0F1F16;
+  --forest: #1F4D3A;
+  --forest-soft: #2F624B;
+  --sage: #A7B89F;
+  --beige: #DCC9A8;
+  --line: rgba(15, 31, 22, 0.16);
 }
 
 * {
@@ -120,34 +120,37 @@ a {
 
 .hero {
   position: relative;
+  isolation: isolate;
   min-height: 100svh;
   padding: 176px 0 52px;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
   align-items: center;
   color: var(--ivory);
+  background: var(--charcoal);
 }
 
 .hero::before {
   content: '';
   position: absolute;
-  z-index: -2;
+  z-index: 0;
   top: 0;
   bottom: 0;
   left: 50%;
   width: 100vw;
   transform: translateX(-50%);
   background:
-    radial-gradient(circle at 79% 44%, rgba(157, 174, 151, 0.17), transparent 20rem),
-    radial-gradient(circle at 10% 12%, rgba(94, 133, 112, 0.13), transparent 28rem),
-    var(--charcoal);
+    radial-gradient(circle at 79% 44%, rgba(167, 184, 159, 0.18), transparent 20rem),
+    radial-gradient(circle at 10% 12%, rgba(31, 77, 58, 0.24), transparent 30rem),
+    linear-gradient(135deg, #0F1F16 0%, #13291F 56%, #0F1F16 100%);
+  pointer-events: none;
 }
 
 .hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   opacity: 0.12;
   background-image:
     linear-gradient(rgba(255,255,255,0.13) 1px, transparent 1px),
@@ -958,4 +961,50 @@ footer {
   *::after {
     transition-duration: 0.01ms !important;
   }
+}
+
+
+/* Keep hero content above decorative background layers. */
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.nav-wrap {
+  background: linear-gradient(to bottom, rgba(15, 31, 22, 0.42), transparent);
+}
+
+.hero h1 {
+  color: var(--ivory);
+}
+
+.hero h1 em {
+  color: var(--sage);
+}
+
+.hero-lede {
+  color: rgba(250, 247, 239, 0.78);
+}
+
+.kicker {
+  color: rgba(250, 247, 239, 0.62);
+}
+
+.status-dot {
+  background: var(--sage);
+}
+
+.idea-core {
+  background:
+    radial-gradient(circle at 30% 25%, rgba(250, 247, 239, 0.14), transparent 35%),
+    var(--forest);
+}
+
+.code-fragment {
+  background: rgba(15, 31, 22, 0.82);
+  color: rgba(250, 247, 239, 0.68);
+}
+
+.hero-foot {
+  color: rgba(250, 247, 239, 0.46);
 }
