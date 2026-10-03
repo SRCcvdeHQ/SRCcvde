@@ -714,16 +714,19 @@ function CookiesPage() {
       <h2>2. Browser storage</h2>
       <p>The site may use session storage for limited functional purposes. For example, when GitHub Pages routes a direct link through the site's fallback page, session storage may temporarily preserve the page you originally requested so the application can restore it. Session storage is generally cleared by the browser when the session ends.</p>
 
-      <h2>3. Third-party technical requests</h2>
+      <h2>3. PWA cache and push storage</h2>
+      <p>The authenticated SRCcvde platform may use a service worker and browser cache to support PWA installation, reliable navigation, updates, and limited offline behavior. If you opt in to push notifications, the platform also stores your notification preferences and a device-specific push subscription needed for delivery. These technologies are functional and are not used to build advertising profiles.</p>
+
+      <h2>4. Third-party technical requests</h2>
       <p>Some website resources or infrastructure are provided by third parties. For example, this site currently loads web fonts from Google Fonts and uses infrastructure or services from GitHub, Supabase, and Cloudflare. Those providers may receive ordinary connection information such as IP address, browser information, and request metadata under their own policies.</p>
 
-      <h2>4. Future analytics or advertising</h2>
+      <h2>5. Future analytics or advertising</h2>
       <p>If SRCcvde later adds non-essential analytics, advertising technologies, or other tracking that materially changes these practices, this notice and the Privacy Policy will be updated. Where applicable law requires consent or an opt-out mechanism, we will implement the appropriate choice before using that technology.</p>
 
-      <h2>5. Browser controls</h2>
+      <h2>6. Browser controls</h2>
       <p>You can use your browser settings to block or clear cookies and site storage. Blocking essential browser storage may affect some navigation behavior, but the current public site does not require advertising or analytics cookies to function.</p>
 
-      <h2>6. Contact</h2>
+      <h2>7. Contact</h2>
       <p>Questions about website tracking can be sent to <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>.</p>
     </PolicyLayout>
   )
