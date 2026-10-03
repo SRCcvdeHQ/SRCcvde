@@ -616,23 +616,28 @@ function PrivacyPage() {
       <p>SRCcvde does not currently use advertising cookies or third-party analytics cookies on this public website. The site may use browser session storage for basic navigation behavior, such as restoring a requested page after a GitHub Pages redirect. See our <a href="/cookies">Cookie &amp; Tracking Notice</a> for more detail.</p>
       <p>We do not currently engage in cross-site behavioral tracking. Because the site does not use cross-site advertising trackers, browser “Do Not Track” signals do not change the site's current behavior. Third-party infrastructure providers may receive ordinary technical requests when their resources or services are used.</p>
 
-      <h2>7. Retention</h2>
+      <h2>7. Progressive web app and push notifications</h2>
+      <p>The SRCcvde client platform may be installed as a progressive web app (PWA). To support installation, reliable navigation, and limited offline behavior, the platform may use a service worker and browser cache. Cached application files are functional copies of the app interface and are not used for advertising.</p>
+      <p>If you choose to enable push notifications, SRCcvde may process a device-specific push subscription endpoint, browser-generated delivery keys, browser or device information, notification preferences, and records of notification consent or revocation. We use this information to deliver the categories of operational notifications you select, such as project, document, approval, message, billing, and security updates. Marketing notifications are a separate preference and are off by default.</p>
+      <p>Push permission is optional. You can change notification categories in the SRCcvde platform, disable a subscribed device, or change notification permission in your browser or operating-system settings. Depending on your device settings, notification previews may appear on a lock screen. Push delivery also relies on browser, operating-system, and push-delivery infrastructure outside SRCcvde&apos;s direct control.</p>
+
+      <h2>8. Retention</h2>
       <p>We retain project inquiries and related business records for as long as reasonably needed to evaluate the opportunity, communicate with you, maintain records, resolve disputes, protect our systems, or meet legal obligations. Retention periods may vary depending on whether an inquiry becomes a client project.</p>
 
-      <h2>8. Your privacy choices and requests</h2>
+      <h2>9. Your privacy choices and requests</h2>
       <p>You may contact us to ask to access, correct, or delete personal information that you submitted through this website. We may need to verify your identity before completing a request, and some information may be retained where permitted or required by law.</p>
       <p>If an applicable state privacy law gives you additional rights, we will process qualifying requests as required by that law. You may send requests to <a href="mailto:hello@srccvde.com?subject=Privacy%20Request">hello@srccvde.com</a>.</p>
 
-      <h2>9. Security</h2>
+      <h2>10. Security</h2>
       <p>We use reasonable technical and organizational safeguards appropriate to the information we handle. The public website does not receive direct database access to project inquiries; submissions pass through a protected server-side function with validation and anti-abuse controls. No internet system can be guaranteed completely secure.</p>
 
-      <h2>10. Children</h2>
+      <h2>11. Children</h2>
       <p>This website is intended for business and general audiences and is not directed to children under 13. We do not knowingly seek personal information from children under 13 through the project-intake form.</p>
 
-      <h2>11. Changes to this policy</h2>
+      <h2>12. Changes to this policy</h2>
       <p>We may update this policy as the website, services, or legal requirements change. Material updates will be reflected by changing the “Last updated” date on this page and, when appropriate, by providing additional notice.</p>
 
-      <h2>12. Contact</h2>
+      <h2>13. Contact</h2>
       <p>Privacy questions and requests can be sent to <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>.</p>
 
       <div className="legal-note">This policy is written for SRCcvde's current public website and intake flow. It should be reviewed whenever analytics, advertising, customer accounts, payment processing, or other new data practices are added.</div>
@@ -669,19 +674,26 @@ function TermsPage() {
       <h2>7. Acceptable use</h2>
       <p>You may not use this site to violate law, interfere with its operation, attempt unauthorized access, send malicious code, automate abusive submissions, scrape the site in a manner that materially burdens our systems, impersonate another person, or infringe the rights of SRCcvde or others.</p>
 
-      <h2>8. Third-party services and links</h2>
+      <h2>8. Mobile and PWA access</h2>
+      <p>The SRCcvde client platform may be installed or used as a progressive web app on supported devices and browsers. App files may update automatically when the platform is opened online. Availability and behavior can depend on the device, browser, operating system, network connection, and third-party infrastructure.</p>
+      <p>You are responsible for reasonable security of devices used to access your account, including device locks and signing out on shared or lost devices. Limited application resources may remain in browser cache for reliability or offline behavior.</p>
+
+      <h2>9. Notifications</h2>
+      <p>Push notifications are optional and require device or browser permission. You may change notification categories or disable notifications for a device. Notifications are provided as a convenience and delivery is not guaranteed or instantaneous. Do not rely on push notifications as the sole method for contractual deadlines, payment obligations, legal notices, or urgent security matters. Notification previews may be visible to anyone who can view your device lock screen.</p>
+
+      <h2>10. Third-party services and links</h2>
       <p>The website may depend on or link to third-party services. SRCcvde does not control those services and is not responsible for their independent terms, privacy practices, availability, or content.</p>
 
-      <h2>9. Disclaimers</h2>
+      <h2>11. Disclaimers</h2>
       <p>To the extent permitted by law, the public website is provided “as is” and “as available.” We do not promise that the site will always be uninterrupted, error-free, or free of harmful components, or that every piece of public content will remain current.</p>
 
-      <h2>10. Limitation of liability</h2>
+      <h2>12. Limitation of liability</h2>
       <p>To the extent permitted by law, SRCcvde will not be liable for indirect, incidental, special, consequential, or punitive damages arising solely from use of, or inability to use, this public website. Nothing in these terms excludes liability that cannot legally be excluded.</p>
 
-      <h2>11. Governing law</h2>
+      <h2>13. Governing law</h2>
       <p>These website terms are governed by the laws of the State of Nevada, without regard to conflict-of-law rules. Subject to applicable law, disputes concerning these website terms may be brought in courts located in Clark County, Nevada.</p>
 
-      <h2>12. Changes and contact</h2>
+      <h2>14. Changes and contact</h2>
       <p>We may update these terms from time to time. The effective date shown on this page identifies the current version. Questions may be sent to <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>.</p>
 
       <div className="legal-note">These are public website terms. Project contracts, payment terms, confidentiality obligations, warranties, support, and ownership rules should remain in SRCcvde's project-specific agreements.</div>
