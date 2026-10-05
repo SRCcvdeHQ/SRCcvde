@@ -88,7 +88,10 @@ function Header() {
           <a href="/about">About</a>
         </div>
 
-        <a className="nav-cta" href="/start">Start a project</a>
+        <div className="nav-actions">
+          <a className="nav-login" href="https://app.srccvde.com">Client login</a>
+          <a className="nav-cta" href="/start">Start a project</a>
+        </div>
 
         <button
           className="menu-button"
@@ -108,6 +111,7 @@ function Header() {
           <a href="/process">Process</a>
           <a href="/work">Work</a>
           <a href="/about">About</a>
+          <a href="https://app.srccvde.com">Client login</a>
           <a className="mobile-start" href="/start">Start a project ↗</a>
         </div>
       </div>
@@ -130,6 +134,7 @@ function Footer() {
           <a href="/work">Work</a>
           <a href="/about">About</a>
           <a href="/start">Start a project</a>
+          <a href="https://app.srccvde.com">Client login</a>
         </div>
 
         <div className="footer-contact">
@@ -239,17 +244,19 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="section-band">
-        <div className="shell split-copy">
-          <div>
-            <p className="section-label">SRCcvde client platform</p>
-            <h2>One place to move a project from idea to handoff.</h2>
+      <section className="section-band client-experience">
+        <div className="shell">
+          <div className="section-heading">
+            <div><p className="section-label">What working together feels like</p><h2>Custom does not have to mean chaotic.</h2></div>
+            <p>You get a real process around the custom work: a clear scope, visible progress, documented decisions, and a clean handoff.</p>
           </div>
-          <div>
-            <p>SRCcvde operates a secure client and project platform at app.srccvde.com for project intake, proposals, agreements, electronic signatures, milestones, project documents, approvals, and handoff.</p>
-            <p>When an authorized SRCcvde administrator connects Google Drive, the platform uses the Google Drive API only to organize and archive SRCcvde client project documents in the connected business Drive. Google Workspace API data is not used to train or improve generalized AI or machine-learning models, create non-consensual intimate imagery, build advertising profiles, or sell user data.</p>
-            <p>Our use of information received from Google APIs follows the Google API Services User Data Policy, including its Limited Use requirements. <a className="text-link" href="/privacy">Read our Privacy Policy <span>↗</span></a></p>
+          <div className="experience-grid">
+            <article><span>01</span><h3>Clear scope</h3><p>We define what is included, what is not, and what changes would affect budget or timeline before surprises become expensive.</p></article>
+            <article><span>02</span><h3>Visible progress</h3><p>Your project lives in a secure client workspace with milestones, documents, approvals, messages, and billing in one place.</p></article>
+            <article><span>03</span><h3>Real ownership</h3><p>Once the agreed project is paid in full, the finished custom deliverables are yours. We make the handoff clean.</p></article>
+            <article><span>04</span><h3>Stay or take the keys</h3><p>Need aftercare, maintenance, or more development? We can stay involved. Ready to run with it? You can.</p></article>
           </div>
+          <a className="text-link" href="https://app.srccvde.com">Already a client? Open your workspace <span>↗</span></a>
         </div>
       </section>
 
@@ -418,7 +425,7 @@ function ProcessPage() {
 function WorkPage() {
   return (
     <SiteFrame>
-      <PageHero eyebrow="Work" title="Real work only." copy="We would rather show a smaller portfolio of real projects than fill this page with fictional brands and invented outcomes." />
+      <PageHero eyebrow="Work" title="Real work only." copy="We would rather earn your trust with a smaller portfolio of real projects than fill this page with fictional brands, mock clients, or invented outcomes." />
       <section className="section shell">
         <div className="portfolio-empty">
           <InterfaceVisual />
@@ -447,6 +454,7 @@ function AboutPage() {
             <p className="large-copy">We want clients to feel like part of the build, not passengers waiting for a mysterious technical team to return with something they barely recognize.</p>
           </div>
         </div>
+        <div className="founder-note"><span>Founder-led · Small by design</span><p>You work with the people responsible for the decisions and the build—not through layers of account management.</p></div>
         <div className="value-grid">
           <article><span>01</span><h3>Accessible</h3><p>We explain technology in normal language and meet people where they are.</p></article>
           <article><span>02</span><h3>Custom</h3><p>The work starts with your problem and your users, not a pre-selected template.</p></article>
@@ -513,6 +521,14 @@ function StartPage() {
           <p className="section-label">Before you start</p>
           <h2>A rough idea is enough.</h2>
           <p>We use this first note to understand the shape of the project. It is not a contract, quote, or commitment.</p>
+          <div className="next-steps">
+            <span>What happens next</span>
+            <ol>
+              <li><b>We read it.</b><small>Your brief is reviewed by a human, not scored by an automated sales funnel.</small></li>
+              <li><b>We follow up.</b><small>We will ask the questions needed to understand the problem, fit, and responsible first version.</small></li>
+              <li><b>Then we scope it.</b><small>If it looks like a fit, we move into discovery before any project commitment.</small></li>
+            </ol>
+          </div>
           <div className="contact-note"><span>Prefer email?</span><a href="mailto:hello@srccvde.com">hello@srccvde.com</a></div>
         </aside>
 
