@@ -75,6 +75,8 @@ function Logo({ footer = false }: { footer?: boolean }) {
 
 function Header() {
   const [open, setOpen] = useState(false)
+  const current = window.location.pathname.replace(/\/+$/, '') || '/'
+  const navClass = (href: string) => current === href ? 'is-current' : undefined
 
   return (
     <header className="nav-wrap">
@@ -82,10 +84,10 @@ function Header() {
         <Logo />
 
         <div className="nav-links">
-          <a href="/services">Services</a>
-          <a href="/process">Process</a>
-          <a href="/work">Work</a>
-          <a href="/about">About</a>
+          <a className={navClass('/services')} aria-current={current==='/services'?'page':undefined} href="/services">Services</a>
+          <a className={navClass('/process')} aria-current={current==='/process'?'page':undefined} href="/process">Process</a>
+          <a className={navClass('/work')} aria-current={current==='/work'?'page':undefined} href="/work">Work</a>
+          <a className={navClass('/about')} aria-current={current==='/about'?'page':undefined} href="/about">About</a>
         </div>
 
         <div className="nav-actions">
@@ -96,8 +98,9 @@ function Header() {
         <button
           className="menu-button"
           type="button"
-          aria-label="Open navigation"
+          aria-label={open ? 'Close navigation' : 'Open navigation'}
           aria-expanded={open}
+          aria-controls="mobile-navigation"
           onClick={() => setOpen((value) => !value)}
         >
           <span />
@@ -105,12 +108,12 @@ function Header() {
         </button>
       </nav>
 
-      <div className={open ? 'mobile-nav is-open' : 'mobile-nav'} aria-hidden={!open}>
+      <div id="mobile-navigation" className={open ? 'mobile-nav is-open' : 'mobile-nav'} aria-hidden={!open}>
         <div className="shell mobile-nav-inner">
-          <a href="/services">Services</a>
-          <a href="/process">Process</a>
-          <a href="/work">Work</a>
-          <a href="/about">About</a>
+          <a className={navClass('/services')} aria-current={current==='/services'?'page':undefined} href="/services">Services</a>
+          <a className={navClass('/process')} aria-current={current==='/process'?'page':undefined} href="/process">Process</a>
+          <a className={navClass('/work')} aria-current={current==='/work'?'page':undefined} href="/work">Work</a>
+          <a className={navClass('/about')} aria-current={current==='/about'?'page':undefined} href="/about">About</a>
           <a href="https://app.srccvde.com">Client login</a>
           <a className="mobile-start" href="/start">Start a project ↗</a>
         </div>
@@ -129,10 +132,10 @@ function Footer() {
         </div>
 
         <div className="footer-links">
-          <a href="/services">Services</a>
-          <a href="/process">Process</a>
-          <a href="/work">Work</a>
-          <a href="/about">About</a>
+          <a className={navClass('/services')} aria-current={current==='/services'?'page':undefined} href="/services">Services</a>
+          <a className={navClass('/process')} aria-current={current==='/process'?'page':undefined} href="/process">Process</a>
+          <a className={navClass('/work')} aria-current={current==='/work'?'page':undefined} href="/work">Work</a>
+          <a className={navClass('/about')} aria-current={current==='/about'?'page':undefined} href="/about">About</a>
           <a href="/start">Start a project</a>
           <a href="https://app.srccvde.com">Client login</a>
         </div>
