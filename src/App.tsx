@@ -619,7 +619,7 @@ function StartPage() {
           <div className="field-row">
             <label><span>Approximate budget</span>
               <select name="budget" defaultValue="Not sure yet">
-                <option>Not sure yet</option><option>Under $2,500</option><option>$2,500–$5,000</option><option>$5,000–$10,000</option><option>$10,000–$25,000</option><option>$25,000+</option>
+                <option>Not sure yet</option><option>Under $100</option><option>$100–$300</option><option>$300–$500</option><option>$500+</option>
               </select>
             </label>
             <label><span>Ideal timeline</span>
