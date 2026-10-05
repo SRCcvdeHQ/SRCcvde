@@ -624,7 +624,7 @@ function StartPage() {
             </label>
             <label><span>Ideal timeline</span>
               <select name="timeline" defaultValue="Flexible">
-                <option>Flexible</option><option>Within 1 month</option><option>1–3 months</option><option>3–6 months</option><option>6+ months</option>
+                <option>Flexible</option><option>1–2 weeks</option><option>2–4 weeks</option><option>4–8 weeks</option><option>8+ weeks</option>
               </select>
             </label>
           </div>
