@@ -1868,7 +1868,7 @@ textarea {
 
 
 /* Public-site conversion polish */
-.nav-actions{display:flex;align-items:center;gap:10px}
+.nav-actions{display:flex;align-items:center;justify-self:end;gap:10px}
 .nav-login{display:inline-flex;align-items:center;min-height:42px;padding:0 8px;color:rgba(244,241,234,.62);font-size:.78rem;text-decoration:none}
 .nav-login:hover{color:var(--cream)}
 .experience-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
