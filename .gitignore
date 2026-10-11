@@ -9,3 +9,8 @@ dist/
 coverage/
 .idea/
 .vscode/
+
+.prerender/
+.wrangler/
+playwright-report/
+test-results/
