@@ -1,41 +1,7 @@
-# SRCcvde
+# SRCcvde website
 
-**Because you dreamt.**
+React/TypeScript with prerendered HTML for every public route, hosted on Cloudflare Pages. Static pages remain readable without JavaScript. The project form uses a same-origin Pages Function; Supabase credentials needed by that gateway are server bindings.
 
-Official repository for the SRCcvde company website.
+Use Node 22.18+ and `npm ci`, then `npm run dev`. Run `npm test` and `npm run build` before committing. `npm run test:browser` runs desktop/mobile route, accessibility, and failed-form checks against a local Pages preview after a build.
 
-SRCcvde builds custom websites, web applications, and PWAs for people and organizations who want technology that feels like theirs.
-
-## Stack
-
-- React
-- TypeScript
-- Vite
-- Cloudflare-ready static deployment
-- GitHub Actions CI
-
-## Local development
-
-```bash
-npm install
-npm run dev
-```
-
-## Production build
-
-```bash
-npm run build
-npm run preview
-```
-
-## Branching
-
-- `main` — production-ready code
-- `dev` — integration branch for active development
-- feature branches — short-lived branches for focused work
-
-## Ownership
-
-This repository is maintained by SRCcvdeHQ.
-
-© SRCcvde. All rights reserved.
+See [deployment instructions](docs/DEPLOYMENT.md) for the coordinated backend and hosting migration. Production deployment is manual from `main`, through the `cloudflare-production` GitHub environment. The previous GitHub Pages deployment is replaced; neither a PR nor a merge changes DNS.

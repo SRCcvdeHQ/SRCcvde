@@ -1,41 +1,51 @@
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
-
 export type ProjectInquiryInput = {
-  name: string
-  email: string
-  company?: string
-  project_type: string
-  budget_range: string
-  timeline: string
-  involvement: string
-  details: string
-  website?: string
-}
+  name: string;
+  email: string;
+  company?: string;
+  project_type: string;
+  budget_range: string;
+  timeline: string;
+  involvement: string;
+  details: string;
+  website?: string;
+};
 
 export async function submitProjectInquiry(input: ProjectInquiryInput) {
-  if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
-    throw new Error('Project intake is temporarily unavailable.')
+  let response: Response;
+  try {
+    response = await fetch("/api/inquiry", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(input),
+      signal: AbortSignal.timeout(20_000),
+    });
+  } catch {
+    throw new Error(
+      "We could not confirm receipt. Your brief is still here; please retry or email hello@srccvde.com.",
+    );
   }
 
-  const response = await fetch(`${SUPABASE_URL}/functions/v1/submit-project-inquiry`, {
-    method: 'POST',
-    headers: {
-      apikey: SUPABASE_PUBLISHABLE_KEY,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(input),
-  })
-
-  const result = await response.json().catch(() => ({}))
+  const result = await response.json().catch(() => ({}));
 
   if (!response.ok) {
     throw new Error(
-      typeof result?.error === 'string'
+      typeof result?.error === "string"
         ? result.error
-        : 'Unable to submit right now. Please try again.',
-    )
+        : "Unable to submit right now. Please try again.",
+    );
   }
 
-  return result as { ok: true; request_id?: string; duplicate?: boolean }
+  if (
+    result?.ok !== true ||
+    (result.request_id !== undefined &&
+      typeof result.request_id !== "string") ||
+    (result.duplicate !== undefined && typeof result.duplicate !== "boolean")
+  ) {
+    throw new Error(
+      "We could not confirm receipt. Please retry or email hello@srccvde.com.",
+    );
+  }
+  return result as { ok: true; request_id?: string; duplicate?: boolean };
 }
