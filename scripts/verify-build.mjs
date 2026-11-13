@@ -3,9 +3,6 @@ import { readFile } from "node:fs/promises";
 const routes = [
   "/",
   "/services",
-  "/process",
-  "/work",
-  "/about",
   "/start",
   "/privacy",
   "/terms",

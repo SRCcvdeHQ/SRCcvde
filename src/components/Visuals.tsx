@@ -1,98 +1,71 @@
-export function IdeaVisual({ compact = false }: { compact?: boolean }) {
+export function IdeaToReal() {
+  const blocks = Array.from({ length: 6 }, (_, i) => <span key={i} />);
   return (
-    <div
-      className={compact ? "idea-visual compact" : "idea-visual"}
-      aria-hidden="true"
-    >
-      <div className="orbit orbit-one" />
-      <div className="orbit orbit-two" />
-      <div className="idea-core">
-        <span className="core-label">idea</span>
-        <span className="core-line" />
-        <strong>→ real</strong>
-      </div>
-      <span className="code-fragment fragment-one">&lt;build /&gt;</span>
-      <span className="code-fragment fragment-two">01 — dream</span>
-    </div>
-  );
-}
-
-export function InterfaceVisual() {
-  return (
-    <div className="interface-visual" aria-hidden="true">
-      <div className="window-bar">
-        <span />
-        <span />
-        <span />
-        <em>srccvde / project</em>
-      </div>
-      <div className="interface-body">
-        <div className="interface-sidebar">
-          <strong>build</strong>
-          <span className="active">overview</span>
-          <span>design</span>
-          <span>development</span>
-          <span>launch</span>
-        </div>
-        <div className="interface-content">
-          <div className="interface-topline">
-            <span>Project status</span>
-            <strong>In motion</strong>
-          </div>
-          <div className="metric-row">
-            <div>
-              <small>idea</small>
-              <b>01</b>
-            </div>
-            <div>
-              <small>systems</small>
-              <b>04</b>
-            </div>
-            <div>
-              <small>owner</small>
-              <b>you</b>
-            </div>
-          </div>
-          <div className="signal-chart">
-            <i />
-            <i />
-            <i />
-            <i />
-            <i />
-            <i />
-            <i />
-          </div>
+    <figure className="fig fd" style={{ animationDelay: "1s" }}>
+      <div className="tk fig-frame" aria-hidden="true">
+        <div className="fig-in">
+          <div className="fig-layer idea">{blocks}</div>
+          <div className="fig-layer real">{blocks}</div>
+          <span className="scan" />
         </div>
       </div>
-    </div>
+      <figcaption className="t-mono">
+        <span>Fig. 01</span>
+        <span>
+          <span className="la">Idea</span> <span aria-hidden="true">→</span>{" "}
+          <span className="lb acc">Real</span>
+        </span>
+      </figcaption>
+    </figure>
   );
 }
 
 export function PageHero({
   eyebrow,
   title,
+  accent,
   copy,
-  visual = false,
+  children,
+  small = false,
 }: {
+  small?: boolean;
   eyebrow: string;
   title: string;
-  copy: string;
-  visual?: boolean;
+  accent?: string;
+  copy?: string;
+  children?: React.ReactNode;
 }) {
   return (
-    <section className="page-hero shell">
-      <div>
-        <p className="section-label">{eyebrow}</p>
-        <h1>{title}</h1>
-        <p>{copy}</p>
-      </div>
-      {visual ? (
-        <IdeaVisual compact />
-      ) : (
-        <span className="page-index" aria-hidden="true">
-          SRC / cvde
-        </span>
+    <section className="wrap subhero">
+      <p className="t-mono fd c-mute2" style={{ margin: "0 0 28px" }}>
+        § {eyebrow}
+      </p>
+      <h1
+        className={small ? "t-h2 fd m0" : "t-dis t-dis-sm fd m0"}
+        style={{ animationDelay: ".08s" }}
+      >
+        {title}
+        {accent && (
+          <>
+            {" "}
+            <span className="serif acc">{accent}</span>
+          </>
+        )}
+      </h1>
+      {copy && (
+        <p
+          className="t-lead fd c-cream"
+          style={{
+            margin: "clamp(32px, 4vw, 56px) 0 0",
+            maxWidth: 760,
+            fontSize: "clamp(20px, 2vw, 28px)",
+            animationDelay: ".16s",
+          }}
+        >
+          {copy}
+        </p>
       )}
+      {children}
     </section>
   );
 }

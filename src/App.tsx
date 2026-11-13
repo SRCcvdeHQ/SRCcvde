@@ -2,9 +2,6 @@ import { useEffect } from "react";
 import { pageMeta, type PageMeta } from "./page-meta";
 import { HomePage } from "./pages/HomePage";
 import { ServicesPage } from "./pages/ServicesPage";
-import { ProcessPage } from "./pages/ProcessPage";
-import { WorkPage } from "./pages/WorkPage";
-import { AboutPage } from "./pages/AboutPage";
 import { StartPage } from "./pages/StartPage";
 import { PrivacyPage } from "./pages/PolicyPages";
 import { TermsPage } from "./pages/PolicyPages";
@@ -41,12 +38,6 @@ export default function App({
         return <HomePage />;
       case "/services":
         return <ServicesPage />;
-      case "/process":
-        return <ProcessPage />;
-      case "/work":
-        return <WorkPage />;
-      case "/about":
-        return <AboutPage />;
       case "/start":
         return <StartPage />;
       case "/privacy":
