@@ -1,209 +1,221 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
-export const RouteContext = createContext("/");
-import { services } from "../content";
+import { createContext, useContext, useEffect, useState } from "react";
 
-export function Logo({ footer = false }: { footer?: boolean }) {
+export const RouteContext = createContext("/");
+
+export const EMAIL = "hello@srccvde.com";
+export const CLIENT_LOGIN = "https://app.srccvde.com";
+
+const homeNav = [
+  ["01", "Services", "#services"],
+  ["02", "Process", "#process"],
+  ["03", "Pricing", "#pricing"],
+  ["04", "Work", "#work"],
+  ["05", "About", "#about"],
+  ["06", "FAQ", "#faq"],
+] as const;
+
+const pageNav = [
+  ["01", "Home", "/"],
+  ["02", "Services", "/services"],
+  ["03", "Start a project", "/start"],
+] as const;
+
+export function Logo() {
   return (
-    <a
-      className={footer ? "brand footer-brand" : "brand"}
-      href="/"
-      aria-label="SRCcvde home"
-    >
-      <span>SRC</span>cvde
-      <i aria-hidden="true" />
+    <a className="logo" href="/" aria-label="SRCcvde home">
+      SRCcvde<span className="acc">.</span>
     </a>
   );
 }
 
 export function Header() {
+  const path = useContext(RouteContext);
+  const isHome = path === "/";
   const [open, setOpen] = useState(false);
-  const menuButton = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
     if (!open) return;
-    const close = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-        menuButton.current?.focus();
-      }
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
     };
-    document.addEventListener("keydown", close);
-    return () => document.removeEventListener("keydown", close);
   }, [open]);
-  const current = useContext(RouteContext);
-  const navClass = (href: string) =>
-    current === href ? "is-current" : undefined;
+
+  const close = () => setOpen(false);
+  const menuItems = isHome ? homeNav : pageNav;
 
   return (
-    <header className="nav-wrap">
-      <nav className="nav shell" aria-label="Main navigation">
+    <header className="hdr">
+      <div className="wrap hdr-in">
         <Logo />
-
-        <div className="nav-links">
-          <a
-            className={navClass("/services")}
-            aria-current={current === "/services" ? "page" : undefined}
-            href="/services"
-          >
-            Services
-          </a>
-          <a
-            className={navClass("/process")}
-            aria-current={current === "/process" ? "page" : undefined}
-            href="/process"
-          >
-            Process
-          </a>
-          <a
-            className={navClass("/work")}
-            aria-current={current === "/work" ? "page" : undefined}
-            href="/work"
-          >
-            Work
-          </a>
-          <a
-            className={navClass("/about")}
-            aria-current={current === "/about" ? "page" : undefined}
-            href="/about"
-          >
-            About
-          </a>
-        </div>
-
-        <div className="nav-actions">
-          <a className="nav-login" href="https://app.srccvde.com">
+        <nav aria-label="Primary" className="nav desk t-mono">
+          {isHome
+            ? homeNav.map(([n, label, href]) => (
+                <a key={href} className="nv" href={href}>
+                  <span className="n">{n}</span> {label}
+                </a>
+              ))
+            : pageNav.slice(0, 2).map(([, label, href]) => (
+                <a
+                  key={href}
+                  className="nv"
+                  href={href}
+                  aria-current={path === href ? "page" : undefined}
+                >
+                  {label}
+                </a>
+              ))}
+        </nav>
+        <div className="hdr-r">
+          <a className="nv t-mono desk c-mute" href={CLIENT_LOGIN}>
             Client login
           </a>
-          <a className="nav-cta" href="/start">
-            Start a project
-          </a>
-        </div>
-
-        <button
-          ref={menuButton}
-          className="menu-button"
-          type="button"
-          aria-label={open ? "Close navigation" : "Open navigation"}
-          aria-expanded={open}
-          aria-controls="mobile-navigation"
-          onClick={() => setOpen((value) => !value)}
-        >
-          <span />
-          <span />
-        </button>
-      </nav>
-
-      <div
-        id="mobile-navigation"
-        className={open ? "mobile-nav is-open" : "mobile-nav"}
-        aria-hidden={!open}
-      >
-        <div className="shell mobile-nav-inner">
-          <a
-            className={navClass("/services")}
-            aria-current={current === "/services" ? "page" : undefined}
-            href="/services"
+          {path === "/start" ? (
+            <a className="nv t-mono hcta" href={`mailto:${EMAIL}`}>
+              {EMAIL}
+            </a>
+          ) : (
+            <a className="t-mono hcta" href="/start">
+              Start a project <span aria-hidden="true">→</span>
+            </a>
+          )}
+          <button
+            className="mbtn t-mono"
+            type="button"
+            aria-expanded={open}
+            aria-controls="site-menu"
+            onClick={() => setOpen(true)}
           >
-            Services
-          </a>
-          <a
-            className={navClass("/process")}
-            aria-current={current === "/process" ? "page" : undefined}
-            href="/process"
-          >
-            Process
-          </a>
-          <a
-            className={navClass("/work")}
-            aria-current={current === "/work" ? "page" : undefined}
-            href="/work"
-          >
-            Work
-          </a>
-          <a
-            className={navClass("/about")}
-            aria-current={current === "/about" ? "page" : undefined}
-            href="/about"
-          >
-            About
-          </a>
-          <a href="https://app.srccvde.com">Client login</a>
-          <a className="mobile-start" href="/start">
-            Start a project ↗
-          </a>
+            Menu
+          </button>
         </div>
       </div>
+
+      {open && (
+        <div
+          className="menu"
+          id="site-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu"
+        >
+          <div
+            className="wrap hdr-in"
+            style={{ width: "100%", borderBottom: "1px solid var(--line)" }}
+          >
+            <Logo />
+            <button
+              className="mbtn t-mono"
+              style={{ display: "inline-flex" }}
+              type="button"
+              onClick={close}
+              autoFocus
+            >
+              Close <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <nav aria-label="Menu" className="wrap menu-nav">
+            {menuItems.map(([n, label, href], i) => (
+              <a
+                key={href}
+                className="ml mi"
+                href={href}
+                onClick={close}
+                style={{ animationDelay: `${0.04 * (i + 1)}s` }}
+              >
+                <span className="t-mono">{n}</span>
+                {label}
+              </a>
+            ))}
+          </nav>
+          <div className="wrap mi menu-foot" style={{ animationDelay: ".32s" }}>
+            {isHome && (
+              <a className="btn t-mono" href="/start">
+                Start a project{" "}
+                <span className="ar" aria-hidden="true">
+                  →
+                </span>
+              </a>
+            )}
+            <div className="menu-links t-mono">
+              <a className="nv" href={CLIENT_LOGIN}>
+                Client login
+              </a>
+              <a className="nv acc" href={`mailto:${EMAIL}`}>
+                {EMAIL}
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
 
 export function Footer() {
   return (
-    <footer>
-      <div className="shell footer-grid">
-        <div>
-          <Logo footer />
-          <p>Because you dreamt.</p>
-        </div>
-
-        <div className="footer-links">
-          <a href="/services">Services</a>
-          <a href="/process">Process</a>
-          <a href="/work">Work</a>
-          <a href="/about">About</a>
-          <a href="/start">Start a project</a>
-          <a href="https://app.srccvde.com">Client login</a>
-        </div>
-
-        <div className="footer-contact">
-          <span>Start something</span>
-          <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>
-          <small>Las Vegas born · U.S. wide</small>
-        </div>
-      </div>
-
-      <div className="shell footer-bottom">
-        <span>© {new Date().getFullYear()} SRCcvde. All rights reserved.</span>
-        <div>
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-          <a href="/cookies">Cookies</a>
-          <a href="/accessibility">Accessibility</a>
-        </div>
-        <span>Built with intention.</span>
+    <footer className="ftr">
+      <div className="wrap ftr-in t-mono">
+        <span>© 2026 SRCcvde</span>
+        <nav aria-label="Legal" className="ftr-links">
+          <a className="nv" href="/privacy">
+            Privacy
+          </a>
+          <a className="nv" href="/terms">
+            Terms
+          </a>
+          <a className="nv" href="/cookies">
+            Cookies
+          </a>
+          <a className="nv" href="/accessibility">
+            Accessibility
+          </a>
+          <a className="nv" href={CLIENT_LOGIN}>
+            Client login
+          </a>
+        </nav>
+        <span>Las Vegas, NV</span>
       </div>
     </footer>
   );
 }
 
-export function SiteFrame({ children }: { children: React.ReactNode }) {
+function Grain() {
   return (
-    <div className="page">
-      <a className="skip-link" href="#main-content">
-        Skip to content
-      </a>
-      <Header />
-      <main id="main-content" tabIndex={-1}>
-        {children}
-      </main>
-      <Footer />
-    </div>
+    <svg className="grain" aria-hidden="true">
+      <filter id="grain">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.9"
+          numOctaves={2}
+          stitchTiles="stitch"
+        />
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#grain)" />
+    </svg>
   );
 }
 
-export function FinalCta() {
+export function SiteFrame({
+  children,
+  footer = true,
+}: {
+  children: React.ReactNode;
+  footer?: boolean;
+}) {
   return (
-    <section className="final-cta section-band">
-      <div className="shell final-cta-inner">
-        <p className="section-label">Your turn</p>
-        <h2>What did you dream?</h2>
-        <p>
-          You do not need a scope document. You do not need the technical words.
-          Start with the idea.
-        </p>
-        <a className="button button-tan final-button" href="/start">
-          Start a project <span aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </section>
+    <div className="site">
+      <a className="skip" href="#main">
+        Skip to content
+      </a>
+      <Grain />
+      <Header />
+      <main id="main">{children}</main>
+      {footer && <Footer />}
+    </div>
   );
 }

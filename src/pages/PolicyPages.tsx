@@ -1,6 +1,5 @@
 import { SiteFrame } from "../components/Layout";
 import { PageHero } from "../components/Visuals";
-import { services } from "../content";
 
 export function PolicyLayout({
   eyebrow,
@@ -15,10 +14,10 @@ export function PolicyLayout({
 }) {
   return (
     <SiteFrame>
-      <PageHero eyebrow={eyebrow} title={title} copy={copy} />
-      <section className="section shell legal-layout">
-        <aside className="legal-aside">
-          <p className="section-label">Policy information</p>
+      <PageHero small eyebrow={eyebrow} title={title} copy={copy} />
+      <section className="wrap g12 legal">
+        <aside className="legal-aside sp3 t-body" style={{ fontSize: 16 }}>
+          <p className="t-mono c-mute2 m0">Policy information</p>
           <strong>Effective October 2, 2026</strong>
           <span>Last updated October 2, 2026</span>
           <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>
@@ -48,8 +47,10 @@ export function PrivacyPage() {
       <p>
         When you submit a project inquiry, we collect the information you choose
         to provide, which may include your name, email address, company or
-        project name, project type, budget range, preferred timeline, preferred
-        level of involvement, and the details you write about your idea.
+        project name, phone number (if you choose to give one), project type,
+        plan you are considering, budget range, preferred timeline, preferred
+        level of involvement, whether you already have hosting, and the details
+        you write about your idea.
       </p>
       <p>
         We also process limited technical information needed to operate and
