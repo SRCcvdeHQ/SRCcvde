@@ -1,11 +1,10 @@
 /* SRCcvde — editorial redesign (Nov 2026). Fonts are self-hosted. */
 @font-face {
-  font-family: "Inter";
+  font-family: "Schibsted Grotesk";
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 400 900;
   font-display: swap;
-  src: url("@fontsource-variable/inter/files/inter-latin-wght-normal.woff2")
-    format("woff2");
+  src: url("/fonts/SchibstedGrotesk-wght.woff") format("woff");
 }
 @font-face {
   font-family: "Instrument Serif";
@@ -36,7 +35,7 @@
   --bg2: #12281f;
   --bg3: #173e2e;
   --black: #0a0d0b;
-  --sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --sans: "Schibsted Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --serif: "Instrument Serif", Georgia, serif;
   --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
   color-scheme: dark;

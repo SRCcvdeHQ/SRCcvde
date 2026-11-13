@@ -47,8 +47,10 @@ export function PrivacyPage() {
       <p>
         When you submit a project inquiry, we collect the information you choose
         to provide, which may include your name, email address, company or
-        project name, project type, budget range, preferred timeline, preferred
-        level of involvement, and the details you write about your idea.
+        project name, phone number (if you choose to give one), project type,
+        plan you are considering, budget range, preferred timeline, preferred
+        level of involvement, whether you already have hosting, and the details
+        you write about your idea.
       </p>
       <p>
         We also process limited technical information needed to operate and
