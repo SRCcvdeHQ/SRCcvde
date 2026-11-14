@@ -86,7 +86,19 @@ const plans = [
   ],
 ] as const;
 
-const work = [
+type Work = {
+  name: string;
+  kind: string;
+  href: string;
+  copy: string;
+  mark: string;
+  tint: string;
+  wide: boolean;
+  img?: string;
+  alt?: string;
+};
+
+const work: Work[] = [
   {
     name: "Science By Hugs",
     kind: "Web platform",
@@ -122,6 +134,8 @@ const work = [
     mark: "Research catalog.",
     tint: "#2c3d5a",
     wide: true,
+    img: "/work/nexus.jpg",
+    alt: "Nexus storefront: the Research Catalog with product search, category filters and supply products.",
   },
 ];
 
@@ -157,7 +171,7 @@ function Project({
   className = "",
   style,
 }: {
-  p: (typeof work)[number];
+  p: Work;
   className?: string;
   style?: React.CSSProperties;
 }) {
@@ -168,14 +182,27 @@ function Project({
       style={style}
     >
       <div className={`tk proj-frame ${p.wide ? "proj-wide" : "proj-tall"}`}>
-        <div
-          className="shot"
-          style={{ "--tint": p.tint } as React.CSSProperties}
-          aria-hidden="true"
-        >
-          <span className="t-mono c-mute">{p.kind}</span>
-          <span className="big">{p.mark}</span>
-        </div>
+        {p.img ? (
+          <div className="shot-img">
+            <img
+              src={p.img}
+              alt={p.alt}
+              loading="lazy"
+              decoding="async"
+              width={1600}
+              height={800}
+            />
+          </div>
+        ) : (
+          <div
+            className="shot"
+            style={{ "--tint": p.tint } as React.CSSProperties}
+            aria-hidden="true"
+          >
+            <span className="t-mono c-mute">{p.kind}</span>
+            <span className="big">{p.mark}</span>
+          </div>
+        )}
       </div>
       <div className="proj-meta">
         <span className="t-h3">{p.name}</span>

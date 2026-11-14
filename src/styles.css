@@ -923,6 +923,9 @@ img {
   letter-spacing: -0.02em;
   color: var(--ink);
 }
+.shot-img { width: 100%; height: 100%; overflow: hidden; background: var(--black); }
+.shot-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform .9s cubic-bezier(.2,.8,.2,1); }
+.proj:hover .shot-img img { transform: scale(1.035); }
 .proj:hover .shot::before {
   opacity: 1;
   transform: scale(1.06);
