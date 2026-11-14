@@ -125,6 +125,8 @@ const work: Work[] = [
     mark: "Built on legacy.",
     tint: "#5a1f2b",
     wide: false,
+    img: "/work/stone-bruckner.jpg",
+    alt: "Stone-Bruckner Group homepage on a phone: a gold SB monogram on deep burgundy, with the line Built on Legacy. Guided by Vision.",
   },
   {
     name: "Nexus",
@@ -189,8 +191,8 @@ function Project({
               alt={p.alt}
               loading="lazy"
               decoding="async"
-              width={1600}
-              height={800}
+              width={p.wide ? 1600 : 960}
+              height={p.wide ? 800 : 1200}
             />
           </div>
         ) : (
