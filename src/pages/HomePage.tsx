@@ -100,21 +100,23 @@ type Work = {
 
 const work: Work[] = [
   {
-    name: "Science By Hugs",
-    kind: "Web platform",
-    href: "https://sciencebyhugs.com",
-    copy: "The front door to a research ecosystem — one brand, with purpose-built platforms behind it.",
-    mark: "Research, connected.",
-    tint: "#1d3f6b",
-    wide: true,
-  },
-  {
     name: "Benjamin Pearce",
     kind: "Link hub",
     href: "https://benjaminmpearce.github.io/benpearce-linktree/",
     copy: "A cinematic home for a filmmaker’s films, channels and profiles.",
     mark: "Director’s cut.",
     tint: "#4a2f22",
+    wide: true,
+    img: "/work/ben-pearce.jpg",
+    alt: "Benjamin Pearce link hub: his name and links above The Director's Cut showcase card.",
+  },
+  {
+    name: "Science By Hugs",
+    kind: "Web platform",
+    href: "https://sciencebyhugs.com",
+    copy: "The front door to a research ecosystem — one brand, with purpose-built platforms behind it.",
+    mark: "Research, connected.",
+    tint: "#1d3f6b",
     wide: false,
   },
   {
