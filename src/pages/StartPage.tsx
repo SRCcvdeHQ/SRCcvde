@@ -197,7 +197,7 @@ export function StartPage() {
             <div className="sent" role="status">
               <p className="t-mono m0 acc">Received</p>
               <h2 className="t-h2 m0">
-                Your idea is <span className="serif acc">in.</span>
+                Your idea is <span className="serif">in.</span>
               </h2>
               <p
                 className="t-body m0 c-cream"

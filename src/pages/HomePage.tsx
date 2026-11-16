@@ -352,7 +352,7 @@ export function HomePage() {
             <div className="sp7 stack">
               <p className="t-mono m0 c-mute2">§ 02 — Process</p>
               <h2 id="proc-h" className="t-h2 m0">
-                From <span className="serif acc">dream</span> to launch.
+                From <span className="serif">dream</span> to launch.
               </h2>
             </div>
             <p
@@ -393,7 +393,7 @@ export function HomePage() {
               <p className="t-mono m0 c-mute">§ 03 — Pricing</p>
               <h2 id="price-h" className="t-h2 m0">
                 Your dream,{" "}
-                <span className="serif acc">not an agency invoice.</span>
+                <span className="serif">not an agency invoice.</span>
               </h2>
             </div>
             <div
@@ -414,7 +414,7 @@ export function HomePage() {
                 <h3 className="t-mono m0 c-mute" style={{ fontWeight: 400 }}>
                   {String(i + 1).padStart(2, "0")} — {name}
                 </h3>
-                <p className="t-h2 m0 acc">{cost}</p>
+                <p className="t-h2 m0">{cost}</p>
                 <p className="t-body m0" style={{ fontSize: 17 }}>
                   {line}
                 </p>
@@ -474,7 +474,7 @@ export function HomePage() {
                 style={{ fontSize: "clamp(40px, 4.6vw, 68px)" }}
               >
                 First 30 days{" "}
-                <span className="serif acc" style={{ whiteSpace: "nowrap" }}>
+                <span className="serif" style={{ whiteSpace: "nowrap" }}>
                   on us.
                 </span>
               </h3>
@@ -498,7 +498,7 @@ export function HomePage() {
                     >
                       {c}
                     </p>
-                    <p className={`t-mono m0 ${save ? "acc" : "c-mute2"}`}>
+                    <p className={`t-mono m0 ${save ? "c-cream" : "c-mute2"}`}>
                       {m}
                     </p>
                   </div>
@@ -591,7 +591,7 @@ export function HomePage() {
             <div className="sp7 stack">
               <p className="t-mono m0 c-mute2">§ 05 — About</p>
               <h2 id="about-h" className="t-h2 rv m0">
-                A studio built <span className="serif acc">for dreamers.</span>
+                A studio built <span className="serif">for dreamers.</span>
               </h2>
             </div>
             <div
@@ -672,7 +672,7 @@ export function HomePage() {
             What did
             <br />
             you{" "}
-            <span className="serif acc" style={{ fontSize: "1.1em" }}>
+            <span className="serif" style={{ fontSize: "1.1em" }}>
               dream?
             </span>
           </h2>

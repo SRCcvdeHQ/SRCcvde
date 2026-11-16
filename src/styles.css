@@ -847,7 +847,7 @@ img {
 }
 .plus li::before {
   content: "+";
-  color: var(--g);
+  color: var(--dim);
 }
 .plus-grid {
   display: grid;
@@ -1132,7 +1132,7 @@ img {
 }
 .gets li::before {
   content: "+";
-  color: var(--g);
+  color: var(--dim);
   flex: none;
 }
 .meta {

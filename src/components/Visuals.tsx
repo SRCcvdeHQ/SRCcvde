@@ -48,7 +48,7 @@ export function PageHero({
         {accent && (
           <>
             {" "}
-            <span className="serif acc">{accent}</span>
+            <span className="serif">{accent}</span>
           </>
         )}
       </h1>
