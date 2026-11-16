@@ -6,7 +6,9 @@ export function PolicyLayout({
   title,
   copy,
   children,
+  updated = "October 2, 2026",
 }: {
+  updated?: string;
   eyebrow: string;
   title: string;
   copy: string;
@@ -19,7 +21,7 @@ export function PolicyLayout({
         <aside className="legal-aside sp3 t-body" style={{ fontSize: 16 }}>
           <p className="t-mono c-mute2 m0">Policy information</p>
           <strong>Effective October 2, 2026</strong>
-          <span>Last updated October 2, 2026</span>
+          <span>Last updated {updated}</span>
           <a href="mailto:hello@srccvde.com">hello@srccvde.com</a>
         </aside>
         <article className="legal-copy">{children}</article>
@@ -31,6 +33,7 @@ export function PolicyLayout({
 export function PrivacyPage() {
   return (
     <PolicyLayout
+      updated="November 16, 2026"
       eyebrow="Privacy Policy"
       title="Privacy, in plain language."
       copy="This policy explains what information SRCcvde collects through this website, why we use it, how it may be shared, and the choices available to you."
