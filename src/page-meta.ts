@@ -11,21 +11,6 @@ export const pageMeta: Record<string, PageMeta> = {
     description:
       "Custom websites, web apps, PWAs, e-commerce, portals, dashboards, and operations tools built by SRCcvde.",
   },
-  "/process": {
-    title: "Process — SRCcvde",
-    description:
-      "See how SRCcvde turns an idea into a designed, built, launched, and owned digital product.",
-  },
-  "/work": {
-    title: "Work — SRCcvde",
-    description:
-      "Selected SRCcvde work and the systems, websites, and digital products we build with purpose.",
-  },
-  "/about": {
-    title: "About — SRCcvde",
-    description:
-      "SRCcvde is a custom technology studio built around listening first, building responsibly, and giving clients ownership.",
-  },
   "/start": {
     title: "Start a Project — SRCcvde",
     description:
