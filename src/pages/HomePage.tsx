@@ -324,7 +324,7 @@ export function HomePage() {
           <div className="sp4 stack">
             <p className="t-mono m0 c-mute">§ 01 — Services</p>
             <h2 id="svc-h" className="t-h2 m0">
-              What we <span className="serif">build.</span>
+              What we <span>build.</span>
             </h2>
             <p className="t-body m0 c-mute" style={{ maxWidth: 300 }}>
               No fixed menu. Every project starts with the problem and the
@@ -352,7 +352,7 @@ export function HomePage() {
             <div className="sp7 stack">
               <p className="t-mono m0 c-mute2">§ 02 — Process</p>
               <h2 id="proc-h" className="t-h2 m0">
-                From <span className="serif">dream</span> to launch.
+                From <span>dream</span> to launch.
               </h2>
             </div>
             <p
@@ -392,8 +392,7 @@ export function HomePage() {
             <div className="sp6 stack">
               <p className="t-mono m0 c-mute">§ 03 — Pricing</p>
               <h2 id="price-h" className="t-h2 m0">
-                Your dream,{" "}
-                <span className="serif">not an agency invoice.</span>
+                Your dream, <span>not an agency invoice.</span>
               </h2>
             </div>
             <div
@@ -474,9 +473,7 @@ export function HomePage() {
                 style={{ fontSize: "clamp(40px, 4.6vw, 68px)" }}
               >
                 First 30 days{" "}
-                <span className="serif" style={{ whiteSpace: "nowrap" }}>
-                  on us.
-                </span>
+                <span style={{ whiteSpace: "nowrap" }}>on us.</span>
               </h3>
               <p className="t-body m0 c-mute">
                 Then keep us on — or take the keys. Longer plans cost less per
@@ -523,7 +520,7 @@ export function HomePage() {
             <h2 id="own-h" className="t-h2 rv m0">
               Paid in full.
               <br />
-              <span className="serif">Yours for good.</span>
+              <span>Yours for good.</span>
             </h2>
             <p className="t-body m0 c-mute" style={{ maxWidth: 440 }}>
               Finished deliverables belong to you once the project is paid.
@@ -554,7 +551,7 @@ export function HomePage() {
             <div className="sp6 stack">
               <p className="t-mono m0 c-mute">§ 04 — Work</p>
               <h2 id="work-h" className="t-h2 m0">
-                Selected <span className="serif">work.</span>
+                Selected <span>work.</span>
               </h2>
             </div>
             <p
@@ -591,7 +588,7 @@ export function HomePage() {
             <div className="sp7 stack">
               <p className="t-mono m0 c-mute2">§ 05 — About</p>
               <h2 id="about-h" className="t-h2 rv m0">
-                A studio built <span className="serif">for dreamers.</span>
+                A studio built <span>for dreamers.</span>
               </h2>
             </div>
             <div
@@ -634,7 +631,7 @@ export function HomePage() {
           <div className="sp4 stack">
             <p className="t-mono m0 c-mute">§ 06 — FAQ</p>
             <h2 id="faq-h" className="t-h2 m0">
-              Questions, <span className="serif">answered.</span>
+              Questions, <span>answered.</span>
             </h2>
             <p className="t-body m0 c-mute" style={{ maxWidth: 300 }}>
               Something else on your mind?{" "}
@@ -672,7 +669,7 @@ export function HomePage() {
             What did
             <br />
             you{" "}
-            <span className="serif" style={{ fontSize: "1.1em" }}>
+            <span className="serif acc" style={{ fontSize: "1.1em" }}>
               dream?
             </span>
           </h2>

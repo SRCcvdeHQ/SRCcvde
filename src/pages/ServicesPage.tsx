@@ -182,11 +182,7 @@ export function ServicesPage() {
                 </p>
                 <p className="t-h3 m0">
                   {s.plan} —{" "}
-                  {s.price ? (
-                    <span>{s.price}</span>
-                  ) : (
-                    <span className="serif">let's talk</span>
-                  )}
+                  {s.price ? <span>{s.price}</span> : <span>let's talk</span>}
                 </p>
                 <a className="go t-mono" href="/start">
                   {s.cta}{" "}
@@ -214,7 +210,7 @@ export function ServicesPage() {
         >
           Not sure which
           <br />
-          you <span className="serif">need?</span>
+          you <span>need?</span>
         </h2>
         <div
           className="bar"
