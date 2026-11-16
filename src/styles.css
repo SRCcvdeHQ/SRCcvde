@@ -14,15 +14,24 @@
   src: url("/fonts/InstrumentSerif-Italic.woff") format("woff");
 }
 @font-face {
-  font-family: "JetBrains Mono";
+  font-family: "IBM Plex Mono";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/JetBrainsMono-Regular.woff") format("woff");
+  src: url("/fonts/IBMPlexMono-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/IBMPlexMono-Bold.woff") format("woff");
 }
 
 :root {
-  --g: #c8b89a;
+  --g: #10b981;
+  --forest: #1f5f45;
+  --on-forest: #e3ebe6;
   --ink: #f4f1ea;
   --cream: #d8ccb7;
   --mute: #a9b0aa;
@@ -37,7 +46,7 @@
   --black: #0a0d0b;
   --sans: "Schibsted Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --serif: "Instrument Serif", Georgia, serif;
-  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
   color-scheme: dark;
 }
 * {
@@ -271,12 +280,8 @@ img {
   gap: 24px;
   min-height: 68px;
 }
-.logo {
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: 20px;
-  letter-spacing: -0.045em;
-}
+.logo { font-family: var(--mono); font-weight: 700; font-size: 18px; letter-spacing: -.02em; white-space: nowrap; }
+.logo .br { color: var(--g); font-weight: 400; }
 .nav {
   display: flex;
   gap: 36px;
@@ -1507,3 +1512,7 @@ select.inp option {
     display: none;
   }
 }
+
+/* forest panels: brand forest #1F5F45 with light text for contrast */
+.forest { background: var(--forest); }
+.forest .c-mute, .forest .c-mute2 { color: var(--on-forest); }

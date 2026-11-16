@@ -520,7 +520,7 @@ export function HomePage() {
       </section>
 
       <section className="split" aria-labelledby="own-h">
-        <div style={{ background: "var(--bg3)" }}>
+        <div className="forest">
           <p className="t-mono m0 c-mute">§ Ownership</p>
           <div className="stack" style={{ gap: 28 }}>
             <h2 id="own-h" className="t-h2 rv m0">

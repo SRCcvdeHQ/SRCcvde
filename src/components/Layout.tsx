@@ -23,7 +23,14 @@ const pageNav = [
 export function Logo() {
   return (
     <a className="logo" href="/" aria-label="SRCcvde home">
-      SRCcvde<span className="acc">.</span>
+      <span className="br" aria-hidden="true">
+        &lt;
+      </span>
+      SRCcvde
+      <span className="br" aria-hidden="true">
+        {" "}
+        /&gt;
+      </span>
     </a>
   );
 }
