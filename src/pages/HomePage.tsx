@@ -237,56 +237,53 @@ export function HomePage() {
             <span className="desk">Websites · Web apps · PWAs · Tools</span>
             <span>Las Vegas, Nevada</span>
           </div>
-          <h1 id="hero-h" className="t-dis m0">
-            <span className="ln">
-              <span style={{ animationDelay: ".15s" }}>Because</span>
-            </span>
-            <span className="ln">
-              <span
-                style={{
-                  animationDelay: ".3s",
-                  paddingLeft: "clamp(0px, 16vw, 230px)",
-                }}
-              >
-                you
+          <div className="hero-grid">
+            <h1 id="hero-h" className="t-dis hero-h m0">
+              <span className="ln">
+                <span style={{ animationDelay: ".15s" }}>Because</span>
               </span>
-            </span>
-            <span className="ln">
-              <span style={{ animationDelay: ".45s" }}>
-                <span className="serif acc" style={{ fontSize: "1.1em" }}>
-                  dreamt
+              <span className="ln">
+                <span
+                  style={{
+                    animationDelay: ".3s",
+                    paddingLeft: "clamp(0px, 12vw, 190px)",
+                  }}
+                >
+                  you
                 </span>
-                <span className="caret acc">.</span>
               </span>
-            </span>
-          </h1>
+              <span className="ln">
+                <span style={{ animationDelay: ".45s" }}>
+                  <span className="serif acc" style={{ fontSize: "1.1em" }}>
+                    dreamt
+                  </span>
+                  <span className="caret acc">.</span>
+                </span>
+              </span>
+            </h1>
+            <IdeaToReal />
+          </div>
         </div>
         <div className="wrap hero-foot">
-          <div className="g12">
-            <div
-              className="sp4 fd stack"
-              style={{ gap: 32, animationDelay: ".8s" }}
+          <div className="hero-intro fd" style={{ animationDelay: ".8s" }}>
+            <p
+              className="t-body m0 c-cream"
+              style={{ fontSize: 20, maxWidth: 440 }}
             >
-              <p
-                className="t-body m0 c-cream"
-                style={{ fontSize: 20, maxWidth: 380 }}
-              >
-                Custom websites, web apps, PWAs and digital tools — for people
-                with an idea worth making real.
-              </p>
-              <div className="cta-row">
-                <a className="btn t-mono" href="/start">
-                  Tell us your idea{" "}
-                  <span className="ar" aria-hidden="true">
-                    →
-                  </span>
-                </a>
-                <a className="nv t-mono c-mute" href="#work">
-                  See the work
-                </a>
-              </div>
+              Custom websites, web apps, PWAs and digital tools — for people
+              with an idea worth making real.
+            </p>
+            <div className="cta-row">
+              <a className="btn t-mono" href="/start">
+                Tell us your idea{" "}
+                <span className="ar" aria-hidden="true">
+                  →
+                </span>
+              </a>
+              <a className="nv t-mono c-mute" href="#work">
+                See the work
+              </a>
             </div>
-            <IdeaToReal />
           </div>
         </div>
       </section>
